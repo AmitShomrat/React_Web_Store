@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Converse AS-1 Pro",
+    "price": 495,
+    "image": "./assets/ConverseAS-1ProOxShoes.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Converse Fastbreak Pro",
+    "price": 429,
+    "image": "./assets/Converse Fastbreak Pro Suede Mid Skate Shoes.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Nike SB Pogo",
+    "price": 329,
+    "image": "./assets/NIKE SB Pogo Skate Shoes - WHITE _ Tillys.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Nike SB Janoski",
+    "price": 289,
+    "image": "./assets/Nike SB Janoski Remastered Shoes - Solar Flare _ Black - Solar Flare.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Vans Wayvee",
+    "price": 349,
+    "image": "./assets/Vans Wayvee Skateschuhe gray _ multi.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Lakai Cambridge",
+    "price": 259,
+    "image": "./assets/Lakai Cambridge Skate Shoes white _ navy suede.jpg"
+  },
+  {
+    "id": 7,
+    "name": "New Balance Numeric 508",
+    "price": 495,
+    "image": "./assets/New Balance Numeric 508 Westgate Caramel Black Shoes - 10_0.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Nike SB Force 58",
+    "price": 379,
+    "image": "./assets/Nike SB Force 58 Shoes - Team Red _ White - Summit White.jpg"
+  },
+  {
+    "id": 9,
+    "name": "NB Numeric Skateboard",
+    "price": 329,
+    "image": "./assets/Skate Shoes - NB Numeric Skateboard Shoes - New Balance.jpg"
+  }
+]
