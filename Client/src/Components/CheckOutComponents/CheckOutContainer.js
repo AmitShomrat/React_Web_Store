@@ -25,23 +25,37 @@ function CheckOutContainer() {
     /*------------ Handlers and listeners ----------*/
 
     // Receives JSON doc from userDetails and sends a post request to server.
-    const handleCheckOut = (newOrder) =>{
+    const handleCheckOut = (newOrder) => {
         console.log("new order request; Client");
+
         fetch("/items/order", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(newOrder)
-        }).then(res => {
-            if(!res.ok){
-                throw new Error("server cannot add new order")
-            }
-            return res.json();
-        }).catch(err => {
-            console.log(err);
         })
-    }
+            .then(response => {
+                if (!response.ok) {
+                    // If response is not ok, throw an error to be caught in the catch block
+                    throw new Error("Server cannot add new order");
+                }
+                return response.json(); // Return the parsed JSON data
+            })
+            .then(data => {
+                // Check if the server response contains the OrderID
+                if (data.OrderID) {
+                    activateAlert(`Order submitted successfully, Order reference: ${data.OrderID}`, "success");
+                } else {
+                    throw new Error("Order ID not found in server response.");
+                }
+            })
+            .catch(err => {
+                console.error("Error during order submission:", err);
+                activateAlert("Failed to submit order. Please try again later.", "error"); // Display error alert
+            });
+    };
+
 
 
     function onChangeFastDelivery(checked) {

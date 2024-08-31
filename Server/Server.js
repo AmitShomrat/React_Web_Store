@@ -64,6 +64,8 @@ app.get('/items', (req, res) => {
     });
 });
 
+
+//Unique Order ID generator.
 function generateUniqueOrderId () {
   return Math.random().toString(16).slice(2);
 }
@@ -101,7 +103,7 @@ app.post('/items/order', (req, res) => {
         if (err) {
             return res.status(500).json({ error: err.message });
         }
-        res.json(doc);
+        res.status(200).json({OrderID: doc._id});
     });
 });
 

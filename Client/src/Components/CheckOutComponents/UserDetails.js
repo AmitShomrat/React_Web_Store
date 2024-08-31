@@ -102,7 +102,6 @@ function UserDetails({ totalPrice, totalQuantity, onChangeFastDelivery, activate
                 activateAlert(errorMessage, 'danger');
         } else {
             // Proceed with form submission if no errors
-            activateAlert("Order submitted successfully!", "success");
             handleCheckOut(orderDetails);
         }
     };
