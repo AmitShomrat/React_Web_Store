@@ -117,9 +117,8 @@ function UserDetails({ totalPrice, totalQuantity, onChangeFastDelivery, activate
 
     function validateOrderDetails(orderDetails) {
         const errors = {}; // Initialize errors as an empty object
-
-        if (orderDetails.totalQuantity <= 0) {
-            errors.totalQuantity = "Cannot submit an empty cart";
+        if (totalQuantity <= 0 && carts.length === 0) {
+            errors.totalQuantity = "Cannot submit an empty cart, go back home";
         }
 
         if (!orderDetails.contact.name.trim()) {

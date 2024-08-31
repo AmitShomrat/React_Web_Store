@@ -5,6 +5,7 @@ import {useNavigate} from "react-router-dom";
 function MyCart(props) {
 const navigate = useNavigate();
 
+    //Another way of routing and passing props is the useNavigate and useLocation ( When the component does not wrap directly ).
     const navToCheckOut = (data) => {
         navigate('/CheckOut', { state: data }); //Route to check Out and pass state through useNavigate.
     }

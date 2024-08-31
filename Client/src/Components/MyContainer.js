@@ -2,6 +2,7 @@
 import CardContainer from "./CardContainer";
 
 function MyContainer (ancestor_props) {
+    // Context hook for the next time.
     return (
         <div className="container">
             <h1>Products:</h1>
