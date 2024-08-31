@@ -70,7 +70,7 @@ function generateUniqueOrderId () {
 
 //POST - Add a new document
 app.post('/items/order', (req, res) => {
-    console.log("new order request server");
+    console.log("new order request; Server");
     if (!req.body) {
         return res.status(400).json({ error: 'Request body is missing' });
     }
@@ -90,6 +90,7 @@ app.post('/items/order', (req, res) => {
                 "city": req.body.contact.city,
                 "email": req.body.contact.email
             },
+            "carts": req.body.carts,
             "totalPrice": req.body.totalPrice,
             "totalQuantity": req.body.totalQuantity,
             "fastDelivery": req.body.fastDelivery,
