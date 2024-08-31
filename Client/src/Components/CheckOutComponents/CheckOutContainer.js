@@ -10,14 +10,17 @@ function CheckOutContainer() {
     /*------------ init Data ----------*/
     const location = useLocation(); // useLocation hook to collect props from another route.
     const listProducts = location.state // Receives the state (Products static Details) delivery route from home page to CheckOutContainer page.
-
-    const carts = localStorage.getItem("carts") ? JSON.parse(localStorage.getItem("carts")) : [];
-    const totalQuantity = localStorage.getItem("totalQuantity") ? parseInt(localStorage.getItem("totalQuantity")) : 0;
+    // for the next time instead of importing everything from the localStorage it might be better to use the same vars and pass them as props and not a duplicated ones..
+    // The LocalStorage initial purpose were to remember all User activity and reload it e.g refresh page ..
+    const [carts, setCarts] = useState(localStorage.getItem("carts") ? JSON.parse(localStorage.getItem("carts")) : []);
+    const [totalQuantity, setTotalQuantity] = useState(localStorage.getItem("totalQuantity") ? parseInt(localStorage.getItem("totalQuantity")) : 0);
     const [totalPrice, setTotalPrice] = useState(() => localStorage.getItem("totalPrice") ? parseInt(localStorage.getItem("totalPrice")) : 0);
     const [fastDelivery, setfastDelivery] = useState(localStorage.getItem("fastDelivery") ? JSON.parse(localStorage.getItem("fastDelivery")) : false);
 
-    // Updates memory when totalPrice / fastDelivery is change.
+    // Updates memory when carts/ totalQuantity/ totalPrice / fastDelivery is change.
     useEffect( () => {
+        localStorage.setItem("carts", JSON.stringify(carts));
+        localStorage.setItem("totalQuantity", totalQuantity.toString());
         localStorage.setItem('totalPrice', totalPrice.toString());
         localStorage.setItem('fastDelivery', fastDelivery );
     },)
@@ -46,6 +49,10 @@ function CheckOutContainer() {
                 // Check if the server response contains the OrderID
                 if (data.OrderID) {
                     activateAlert(`Order submitted successfully, Order reference: ${data.OrderID}`, "success");
+                    setCarts([]);
+                    setTotalQuantity(0);
+                    setTotalPrice(0);
+                    setfastDelivery(false);
                 } else {
                     throw new Error("Order ID not found in server response.");
                 }

@@ -2,7 +2,7 @@ import './index_css.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import CustomNavbar from "./Components/CustomNavbar";
-import MainComp from "./Components/MainComp";
+import About from "./Components/About";
 import MyContainer from "./Components/MyContainer";
 import MyCart from "./Components/MyCart";
 import CheckOutContainer from "./Components/CheckOutComponents/CheckOutContainer";
@@ -12,6 +12,7 @@ function App() {
     const [listProducts, setListProducts] = useState([]);  // Initially empty array
     const [isDataLoaded, setIsDataLoaded] = useState(false);  // New state to track data loading
 
+    //Fetching listProducts (products information from the collection)
     useEffect(() => {
         const fetchData = async () => {
             console.log("fetch assets");
@@ -57,9 +58,9 @@ function App() {
     });
 
     // Update total calculation whenever carts change
-    useEffect(() => {
-        setTotalCalculation();
-    }, []);
+    // useEffect(() => {
+    //     setTotalCalculation();
+    // }, []);
 
     // Saves all related to carts into memory.
     useEffect(() => {
@@ -160,7 +161,7 @@ function App() {
                     <>
                         <main>
                             <CustomNavbar onToggleCart={toggleCart} totalQuantity={totalQuantity} />
-                            <MainComp />
+                            <About />
                         </main>
                         <body className={isCartVisible ? "showCart" : null}>
                         <MyContainer onAddToCartClick={addToCart} products={listProducts} />

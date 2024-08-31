@@ -1,6 +1,6 @@
 //import './index_css.css'
 import image from './assets/GateImage&Signture.png'
-function MainComp() {
+function About() {
     return (
         <div className="about-content">
             <img src={image} className="img-fluid" alt="gate" />
@@ -16,4 +16,4 @@ function MainComp() {
     );
 }
 
-export default MainComp;
+export default About;
