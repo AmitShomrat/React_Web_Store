@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function UserDetails({ totalPrice, totalQuantity, onChangeFastDelivery, activateAlert, handleCheckOut,fastDelivery }) {
+function UserDetails({ totalPrice, totalQuantity, onChangeFastDelivery, activateAlert, handleCheckOut, fastDelivery, carts }) {
     const [orderDetails, setOrderDetails] = useState({
         contact: { // UserDetails generates the contact domain and assembles all details into a single record:
             name: "",
@@ -10,6 +10,7 @@ function UserDetails({ totalPrice, totalQuantity, onChangeFastDelivery, activate
             city: "",
             email: "",
         },
+        carts: carts,
         totalPrice: totalPrice,
         totalQuantity: totalQuantity,
         fastDelivery: fastDelivery,
@@ -71,7 +72,6 @@ function UserDetails({ totalPrice, totalQuantity, onChangeFastDelivery, activate
 
             const currentCountry = countries.find(value => value.iso3 === selectedCountry);
             const temp = currentCountry.cities;
-            console.log(temp)
             setCities(temp);
         }
     }, [selectedCountry]);

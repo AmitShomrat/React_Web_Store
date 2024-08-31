@@ -26,7 +26,7 @@ function CheckOutContainer() {
 
     // Receives JSON doc from userDetails and sends a post request to server.
     const handleCheckOut = (newOrder) =>{
-        console.log("new order request client");
+        console.log("new order request; Client");
         fetch("/items/order", {
             method: "POST",
             headers: {
@@ -90,9 +90,10 @@ function CheckOutContainer() {
                     <CheckOut carts={carts}
                               listProducts={listProducts}
                     />
-                    <UserDetails totalPrice={totalPrice} // passing useStates vars only for reading purposes.
+                    <UserDetails totalPrice={totalPrice} // passing useStates vars for reading purposes.
                                  fastDelivery={fastDelivery}
                                  totalQuantity={totalQuantity}
+                                 carts={carts}
                                  onChangeFastDelivery={onChangeFastDelivery}
                                  activateAlert = {activateAlert}
                                  handleCheckOut={handleCheckOut}

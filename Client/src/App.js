@@ -176,6 +176,7 @@ function App() {
                     </>
                 } />
                 <Route path="/CheckOut" element={<CheckOutContainer />} />
+                <Route path="/*" element={<div> 404 Not found </div>}/>
                 {/* Add more routes as needed */}
             </Routes>
         </Router>

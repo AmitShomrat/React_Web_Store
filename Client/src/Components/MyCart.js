@@ -6,7 +6,6 @@ function MyCart(props) {
 const navigate = useNavigate();
 
     const navToCheckOut = (data) => {
-        console.log("Navigating with products: ", data);
         navigate('/CheckOut', { state: data }); //Route to check Out and pass state through useNavigate.
     }
 
